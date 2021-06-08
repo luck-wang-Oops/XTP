@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>XTP</title>
+</head>
+<style type="text/css">
+  .win-center {
+    width: 571.14px;
+    height: 480px;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<body>
+  <div class="win-center">
+    <label>医院编码:</label>
+    <input id="iHTTP1" placeholder="330000101001" type="text" value="330000101001" /><br> <br>
+    <label>业务类型:</label>
+    <input id="iHTTP2" placeholder="01301" type="text" value="01301" /><br> <br>
+    <label>终端编号:</label>
+    <input id="iHTTP3" placeholder="01" type="text" value="01" /><br> <br>
+    <label>操作编号:</label>
+    <input id="iHTTP4" placeholder="DBA" type="text" value="DBA" /><br> <br>
+    <label>操作姓名:</label>
+    <input id="iHTTP5" placeholder="DBA" type="text" value="DBA" /><br> <br>
+    <label>科室编码:</label>
+    <input id="iHTTP6" placeholder="" type="text" value="" /><br> <br>
+    <label>科室名称:</label>
+    <input id="iHTTP7" placeholder="" type="text" value="" /><br> <br>
+    <label>请求地址:</label>
+    <input id="iHTTP8" style="width: 398px;" placeholder="" type="text" value="http://localhost:9527/api/med/invoke" />
+    <button type="button" id="ButtonHTTP" >开始扫码</button><br><br>
+    <textarea id="vHTTPRes" rows="10" cols="80"></textarea>
+  </div>
+  <script>
+    var _ButtonHttp = document.getElementById("ButtonHTTP");
+    _ButtonHttp.onclick = function () {
+      var v1 = document.getElementById("iHTTP1").value;
+      var v2 = document.getElementById("iHTTP2").value;
+      var v3 = document.getElementById("iHTTP3").value;
+      var v4 = document.getElementById("iHTTP4").value;
+      var v5 = document.getElementById("iHTTP5").value;
+      var v6 = document.getElementById("iHTTP6").value;
+      var v7 = document.getElementById("iHTTP7").value;
+      var v8 = document.getElementById("iHTTP8").value;
+
+      var req = new Request(v8 +'?args1=' + v1 + '&args2=' + v2 + '&args3=' + v3 +
+        '&args4=' + v4 + '&args5=' + v5 + '&args6=' + v6 + '&args7=' + v7, {
+          mode: "cors",
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          },
+        });
+      fetch(req)
+        .then(
+          (res) => {
+            return res.text();
+          }
+        )
+        .then(
+          (data) => {
+            console.log(data);
+            document.getElementById("vHTTPRes").value = data;
+          }
+        )
+        .catch(
+          (err) => {
+            console.log(err);
+          }
+        )
+    }
+  </script>
+</body>
+
+</html>

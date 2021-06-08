@@ -1,0 +1,64 @@
+{
+  "name": "xtp",
+  "version": "1.0.0",
+  "description": "terminate machine plug-in",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "build": "electron-builder"
+  },
+  "build": {
+    "productName": "XTP",
+    "appId": "com.wjx.app",
+    "copyright": "Copyright 2021 com.wjx.app ALL Rights Reserved",
+    "compression": "maximum",
+    "directories": {
+      "output": "build"
+    },
+    "asar": false,
+    "files":[
+      "!build",
+      "!package-lock.json",
+      "!yarn.lock",
+      "!.yarnclean",
+      "!README.md"
+    ],
+    "win": {
+      "icon": "./src/public/love.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "XTP"
+    }
+  },
+  "author": "wjx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luck-wang-Oops/XTP.git"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "ffi-napi": "^4.0.3",
+    "iconv-lite": "^0.6.3",
+    "ref-napi": "^3.0.2"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.0.1",
+    "electron-builder": "^22.10.5"
+  }
+}

@@ -1,0 +1,10 @@
+[2020-07-17  10:26:35.833] [本地IN]  f_AnalysisQrCode:[330000101001][01301][][008][TEST][01][]
+
+[2020-07-17  10:26:35.943] [本地IN]  {"data":{"operatorId":"008","operatorName":"TEST","officeId":"01","officeName":"","orgId":"330000101001","businessType":"01301"},"orgId":"330000101001","transType":"ec.query"}
+
+[2020-07-17  10:26:37.490] [本地IN]  22222222222222222
+
+[2020-07-17  10:26:37.491] [本地IN]  http://115.236.191.153:9090/localcfc/api/hsecfc/localQrCodeQuery
+
+[2020-07-17  10:26:37.492] [本地OUT]  f_AnalysisQrCode:[-1][交易申请实现函数(f_AnalysisQrCode):调用电子凭证动态库结果[-2]:{"code":-2,"message":"医保电子凭证编码错误,请重新扫码","orgId":"330000101001"})]
+

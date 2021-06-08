@@ -1,0 +1,28 @@
+{
+    "git.ignoreLimitWarning": true,
+    "css.lint.fontFaceProperties": "ignore",
+    "editor.fontWeight": "600",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "name": "all",
+                "scope": [
+                    "Comment",
+                    "Keyword",
+                    "Storage",
+                    "entity",
+                    "variable",
+                    "markup",
+                    "support",
+                    "string",
+                    "meta",
+                    "source",
+                    "entity.name.tag.html"
+                ],
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            }
+        ]
+    }
+}

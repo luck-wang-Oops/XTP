@@ -1,0 +1,30 @@
+[2020-07-15  14:16:11.414] [本地IN]  f_AnalysisQrCode:[330000101001][01301][][][][]
+
+[2020-07-15  14:16:11.487] [本地IN]  {"data":{"operatorId":"","operatorName":"","officeId":"","officeName":"","orgId":"330000101001","businessType":"01301"},"orgId":"330000101001","transType":"ec.query"}
+
+[2020-07-15  14:16:16.056] [本地IN]  22222222222222222
+
+[2020-07-15  14:16:16.057] [本地IN]  http://115.236.191.153:9090/localcfc/api/hsecfc/localQrCodeQuery
+
+[2020-07-15  14:16:16.058] [本地OUT]  f_AnalysisQrCode:[-1][交易申请实现函数(f_AnalysisQrCode):调用电子凭证动态库结果[-2]:{"code":-2,"message":"医保电子凭证编码错误,请重新扫码","orgId":"330000101001"})]
+
+[2020-07-15  14:16:17.905] [本地IN]  f_AnalysisQrCode:[330000101001][01301][][][][]
+
+[2020-07-15  14:16:17.907] [本地IN]  {"data":{"operatorId":"","operatorName":"","officeId":"","officeName":"","orgId":"330000101001","businessType":"01301"},"orgId":"330000101001","transType":"ec.query"}
+
+[2020-07-15  14:16:19.434] [本地IN]  22222222222222222
+
+[2020-07-15  14:16:19.435] [本地IN]  http://115.236.191.153:9090/localcfc/api/hsecfc/localQrCodeQuery
+
+[2020-07-15  14:16:19.435] [本地OUT]  f_AnalysisQrCode:[-1][交易申请实现函数(f_AnalysisQrCode):调用电子凭证动态库结果[-2]:{"code":-2,"message":"医保电子凭证编码错误,请重新扫码","orgId":"330000101001"})]
+
+[2020-07-15  14:16:20.622] [本地IN]  f_AnalysisQrCode:[330000101001][01301][][][][]
+
+[2020-07-15  14:16:20.623] [本地IN]  {"data":{"operatorId":"","operatorName":"","officeId":"","officeName":"","orgId":"330000101001","businessType":"01301"},"orgId":"330000101001","transType":"ec.query"}
+
+[2020-07-15  14:16:21.942] [本地IN]  22222222222222222
+
+[2020-07-15  14:16:21.943] [本地IN]  http://115.236.191.153:9090/localcfc/api/hsecfc/localQrCodeQuery
+
+[2020-07-15  14:16:21.943] [本地OUT]  f_AnalysisQrCode:[-1][交易申请实现函数(f_AnalysisQrCode):调用电子凭证动态库结果[-2]:{"code":-2,"message":"医保电子凭证编码错误,请重新扫码","orgId":"330000101001"})]
+
