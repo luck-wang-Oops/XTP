@@ -1,18 +1,17 @@
 const {
     BrowserWindow,
-    dialog
 } = require('electron');
 
 const _express = require('express');
 const _ffi = require('ffi-napi');
-const _ref = require('ref-napi');
 const _fsx = require('fs');
-const _icv = require('iconv-lite');
 const _path = require('path');
-const _ToolKit = require('../components/toolkits')
+const _iconv = require('iconv-lite');
 
 var MedModule = null;
-var _MedPath = _path.join(__dirname, '../public/external/sso/MedInterface_All.dll');
+var _MedPath = _path.join(__dirname, '../public/extern/sso/MedInterface_All.dll');
+
+console.log('_MedPath = ' + _MedPath);
 
 _fsx.access(_MedPath, function (e) {
     if (e) {
@@ -45,6 +44,37 @@ _fsx.access(_MedPath, function (e) {
         };
     }
 });
+
+var IdsModule = null;
+var _IdsPath = _path.join(__dirname, '../public/extern/dev/widapi.dll');
+
+console.log('_IdsPath = ' + _IdsPath);
+
+_fsx.access(_IdsPath, function (e) {
+    if (e) {
+        console.log('DLLNotExist:' + _IdsPath);
+    } else {
+        _IdsDLL = _ffi.Library(_IdsPath, {
+            'InitComm': [
+                'int', ['int'],
+            ],
+        });
+        IdsModule = {
+            onInitComm: function (iPort) {
+                var i = _IdsDLL.InitComm(iPort);
+                if (i < 0) {
+                    return onNo('身份证阅读器初始化失败', i.toString());
+                } else {
+                    return onOk({
+                        xdata: '身份证阅读器初始化成功',
+                        xcode: xcode
+                    }, i.toString());
+                }
+            }
+        };
+    }
+});
+
 
 var app = _express();
 app.use(_express.json());
@@ -92,7 +122,20 @@ app.get('/api/med/invoke', (req, res) => {
     }
 });
 
+
+//GET运行医保DLL:http://localhost:9527/api/ids/invoke?i=1001
+app.get('/api/ids/invoke', (req, res) => {
+    if (IdsModule == null) {
+        res.json(onNo('身份证阅读器实例为空,无法调用！'));
+    } else {
+        let x = IdsModule.onInitComm(req.i);
+        res.json(x);
+    }
+});
+
+//监听9527端口
 app.listen(9527);
+
 
 function onOk(data, code = '1000') {
     return {
@@ -114,5 +157,5 @@ function onGBKToUTF8(v) {
     if (v == null) {
         return v;
     }
-    return _icv.decode(Buffer.from(v), 'gbk').replaceAll('\u0000', '');
+    return _iconv.decode(Buffer.from(v), 'gbk').replaceAll('\u0000', '');
 };

@@ -4,9 +4,6 @@ const {
     BrowserWindow
 } = require('electron');
 
-module.exports = ToolKit;
-
-
 function ToolKit() {
     return null;
 }
@@ -42,3 +39,5 @@ ToolKit.prototype.doDialog = function doDialogExt() {
         return;
     });
 }
+
+module.exports = ToolKit;

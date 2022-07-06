@@ -17,7 +17,7 @@
       "output": "build"
     },
     "asar": false,
-    "files":[
+    "files": [
       "!build",
       "!package-lock.json",
       "!yarn.lock",
@@ -26,14 +26,12 @@
     ],
     "win": {
       "icon": "./src/public/love.ico",
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "ia32"
-          ]
-        }
-      ]
+      "target": [{
+        "target": "nsis",
+        "arch": [
+          "ia32"
+        ]
+      }]
     },
     "nsis": {
       "oneClick": false,
@@ -60,5 +58,9 @@
   "devDependencies": {
     "electron": "^13.0.1",
     "electron-builder": "^22.10.5"
+  },
+  "config": {
+    "arch": "ia32",
+    "registry": "https://registry.npm.taobao.org"
   }
 }

@@ -12,7 +12,7 @@ const _Path = require('path');
 
 const WinName = 'XTP';
 const WinURL = './src/index.html';
-const WinIconPath =  _Path.join(__dirname, '/public/love.ico');
+const WinIconPath = _Path.join(__dirname, '/public/love.ico');
 
 let Win = null;
 let tray = null;
@@ -45,12 +45,19 @@ function createWindow() {
       type: 'warning',
       title: '提示',
       message: '确定关闭窗口吗 ? 如需再次使用请点击任务栏托盘图标 !',
-      buttons: ['取消', '关闭'],
+      buttons: ['取消', '关闭', '退出'],
       defaultId: 0,
     }).then((i) => {
-      if (i.response !== 0 ) {
-        Win.hide();
-        Win.setSkipTaskbar(true);
+      if (i.response !== 0) {
+        if (i.response === 1) {
+          Win.hide();
+          Win.setSkipTaskbar(true);
+        } else {
+          if (Win !== null) {
+            Win.destroy();
+          }
+          app.quit();
+        }
       }
     });
   });
